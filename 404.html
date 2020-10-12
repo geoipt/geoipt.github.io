@@ -1,0 +1,215 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>&lt;!--GEO--&gt;</title>
+	<link rel="icon" href="logo.svg">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<style type="text/css">
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
+
+* {box-sizing: border-box;}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  line-height: 1.42em;
+  color:#A7A1AE;
+  background-color:#1F2739;
+}
+
+h1 {
+  font-size:3em; 
+  font-weight: 300;
+  line-height:1em;
+  text-align: center;
+  color: #4DC3FA;
+}
+
+h2 {
+  font-size:1em; 
+  font-weight: 300;
+  text-align: center;
+  display: block;
+  line-height:1em;
+  padding-bottom: 2em;
+  color: #FB667A;
+}
+
+h2 a {
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #FB667A;
+  text-decoration: none;
+}
+
+.blue { color: #185875; }
+.yellow { color: #FFF842; }
+
+.container th h1 {
+	  font-weight: bold;
+	  font-size: 1em;
+  text-align: left;
+  color: #185875;
+}
+
+.container td {
+	  font-weight: normal;
+	  font-size: 1em;
+  -webkit-box-shadow: 0 2px 2px -2px #0E1119;
+	   -moz-box-shadow: 0 2px 2px -2px #0E1119;
+	        box-shadow: 0 2px 2px -2px #0E1119;
+}
+
+.container {
+	  text-align: left;
+	  overflow: hidden;
+	  width: 80%;
+	  margin: 0 auto;
+  display: table;
+  padding: 0 0 2em 0;
+}
+
+.container td, .container th {
+	  padding-bottom: 2%;
+	  padding-top: 2%;
+  padding-left:2%;  
+  max-width: 10px;
+}
+
+.container tr:nth-child(odd) {
+	  background-color: #323C50;
+}
+
+.container tr:nth-child(even) {
+	  background-color: #2C3446;
+}
+
+.container th {
+	  background-color: #1F2739;
+}
+
+.container td:first-child { color: #FB667A; }
+
+.container tr:hover {
+   background-color: #464A52;
+-webkit-box-shadow: 0 6px 6px -6px #0E1119;
+	   -moz-box-shadow: 0 6px 6px -6px #0E1119;
+	        box-shadow: 0 6px 6px -6px #0E1119;
+}
+
+.container td:hover {
+  background-color: #FFF842;
+  color: #403E10;
+  font-weight: bold;
+  
+  box-shadow: #7F7C21 -1px 1px, #7F7C21 -2px 2px, #7F7C21 -3px 3px, #7F7C21 -4px 4px, #7F7C21 -5px 5px, #7F7C21 -6px 6px;
+  transform: translate3d(6px, -6px, 0);
+  
+  transition-delay: 0s;
+	  transition-duration: 0.4s;
+	  transition-property: all;
+  transition-timing-function: line;
+}
+@media (max-width: 800px) {
+.container td:nth-child(4),
+.container th:nth-child(4) { display: none; }
+.container {width: 100%;}
+.git {margin-top: 100px;}
+}
+div {
+	background: #A7A1AE;
+	max-height: 100%;
+	height: 200px;
+	max-height: 300px;
+	color: black;
+}
+</style>
+</head>
+<body>
+<h1 class="git"><span class="blue"></span>GEO<span class="blue"></span> по <span class="yellow">IP</pan></h1>
+<table class="container">
+	<thead>
+		<tr>
+			<th><h1>Вид</h1></th>
+			<th><h1>Пример на вас</h1></th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>IP</td>
+			<td id="ip1"></td>
+		</tr>
+		<tr>
+			<td>Провайдер</td>
+			<td id="aso1"></td>
+		</tr>
+		<tr>
+			<td>ASN</td>
+			<td id="asn1"></td>
+		</tr>
+    <tr>
+			<td>Код страны</td>
+			<td id="iscode"></td>
+		</tr>
+    <tr>
+			<td>Код континента</td>
+			<td id="ccode"></td>
+		</tr>
+    <tr>
+			<td>Страна</td>
+			<td id="countr"></td>
+		</tr>
+    <tr>
+			<td>Континент</td>
+			<td id="continent1"></td>
+		</tr>
+    <tr>
+			<td>Почтовый индекс</td>
+			<td id="zipc"></td>
+		</tr>
+    <tr>
+			<td>Область</td>
+			<td id="state1"></td>
+		</tr>
+    <tr>
+			<td>Областной код</td>
+			<td id="statecode1"></td>
+		</tr>
+    <tr>
+			<td>Город</td>
+			<td id="city1"></td>
+		</tr>
+    <tr>
+			<td>Широта</td>
+			<td id="latitude1"></td>
+		</tr>
+    <tr>
+			<td>Долгота</td>
+			<td id="longitude1"></td>
+		</tr>
+	</tbody>
+</table>
+<h1><<span class="blue">JSON</span>></h1>
+<div class="container" id="tjson" style="padding: 10px;"></div>
+<script src="https://geoipt.herokuapp.com/geo.js"></script>
+<script>
+ip1.append(ip);
+aso1.append(aso);
+asn1.append(asn);
+iscode.append(iso_code);
+ccode.append(continent_code);
+countr.append(country);
+continent1.append(continent);
+zipc.append(zip_code);
+state1.append(state);
+statecode1.append(state_code);
+city1.append(city);
+latitude1.append(latitude);
+longitude1.append(longitude);
+json1 = `{  "ip": "` + ip + `", "aso": "` + aso + `", "asn": "` + asn + `",  "iso_code": "` + iso_code + `", "continent_code": "` + continent_code + `",  "country": "` + country + `", "continent": "` + continent + `",  "zip_code": "` + zip_code + `", "state": "` + state + `",  "state_code": "` + state_code + `", "city": "` + city + `",  "latitude": ` + latitude + `, "longitude": ` + longitude + `, "author": "vsevolodhtml"}`;
+tjson.append(json1);
+</script>
+<a href="https://github.com/htmlcssphpjs" style="position: absolute;top: 0;right: 0;border: 0;z-index: 1000;"><img loading="lazy" width="149" height="149" src="https://github.blog/wp-content/uploads/2008/12/forkme_right_darkblue_121621.png?resize=149%2C149" class="attachment-full size-full" alt="Fork me on GitHub" data-recalc-dims="1"></a>
+</body>
+</html>
